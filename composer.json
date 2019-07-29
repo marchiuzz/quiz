@@ -1,0 +1,8 @@
+{
+    "name": "marchiuzz/quiz",
+    "description": "Quizes questions and aswers",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {}
+}
