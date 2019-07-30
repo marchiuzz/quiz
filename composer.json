@@ -4,5 +4,18 @@
     "type": "project",
     "license": "MIT",
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "php": ">=7.1",
+        "ext-pdo": "*",
+        "php-database-migration/php-database-migration": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Quiz\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "prefer-stable": true
 }
