@@ -8,5 +8,5 @@ use Quiz\Model;
 
 class Category extends Model
 {
-    protected $table = 'categories';
+    protected $table = 't_categories';
 }
