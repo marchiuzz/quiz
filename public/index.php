@@ -9,7 +9,9 @@ include_once (__DIR__."/partial/menu.php");
 
 $quizModel = new Quiz();
 
-$quizzes = $quizModel->get();
+$categorySlug = (isset($_GET['category']) && !empty($_GET['category']) ? $_GET['category'] : null);
+
+$quizzes = $quizModel->getByCategory($categorySlug);
 ?>
 
 <h4>Quizes List</h4>

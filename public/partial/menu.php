@@ -15,11 +15,11 @@ $categories = $categoryModel->get();
 </style>
 
 <ul class="menu">
-    <li><a href="/">Home</a></li>
+    <li><a href="?category">Home</a></li>
     <?php
     foreach ($categories as $category) {
         ?>
-        <li><a href="/?category=<?= $category['slug']?>"><?= $category['title'] ?></a></li>
+        <li><a href="?category=<?= $category['slug']?>"><?= $category['title'] ?></a></li>
     <?
     }
     ?>
