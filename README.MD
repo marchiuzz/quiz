@@ -11,5 +11,7 @@ Quizes description with categories
 
 ##Installation
 - Run `composer` install command
+- Create database and login credentials
+- Run `vendor/bin/migrate migrate:addenv dev` for development
 
 

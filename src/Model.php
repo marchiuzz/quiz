@@ -36,4 +36,48 @@ class Model extends Database
 
         return $data;
     }
+
+    public function insert(array $data): void
+    {
+        $fieldsArray = array_keys($data);
+        $fieldsString = implode(", ", $fieldsArray);
+
+
+        $paramsArray = [];
+        foreach ($fieldsArray as $item) {
+            $paramsArray[] = ":".$item;
+        }
+
+        $paramsString = implode(", ", $paramsArray);
+
+        $sql = sprintf("INSERT INTO %s (%s) VALUES (%s)", $this->table, $fieldsString, $paramsString);
+
+        $stmt = $this->getConnection()->prepare($sql);
+
+        foreach ($fieldsArray as $item) {
+            $stmt->bindValue(":".$item, $data[$item], $this->getPDOType($data[$item]));
+        }
+
+        $stmt->execute();
+    }
+
+
+
+
+    private function getPDOType($var): int{
+        if(is_string($var)){
+            return PDO::PARAM_STR;
+        }
+
+        if(is_int($var)){
+            return PDO::PARAM_INT;
+        }
+
+        if(is_bool($var)){
+            return PDO::PARAM_BOOL;
+        }
+
+        return PDO::PARAM_NULL;
+    }
+
 }

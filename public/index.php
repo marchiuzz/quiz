@@ -21,7 +21,7 @@ $quizzes = $quizModel->getByCategory($categorySlug);
     foreach ($quizzes as $quiz) {
         ?>
 
-    <li><a href="#"><?= $quiz['quiz']?></a></li>
+    <li><a href="quiz.php?quiz=<?= $quiz['slug']?>"><?= $quiz['quiz']?></a></li>
 
     <?
     }
